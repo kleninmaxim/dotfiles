@@ -1,0 +1,62 @@
+set nocompatible              " be improved, required
+
+"-------------General Settings--------------"
+"enable file type detection"
+filetype plugin indent on
+
+"Make backspace behave normally"
+set backspace=indent,eol,start
+
+"The default leader is \, but a comma is much better."
+let mapleader = ','
+
+"Enable line numbers"
+set number
+set relativenumber
+
+"-------------Visuals--------------"
+syntax enable
+set background=dark
+colorscheme material-theme
+
+set guifont=Fira_Code
+
+"Macvim specifc line height"
+set linespace=15
+
+set autowriteall
+set complete=.,w,b,u
+set tabstop=8
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+
+"-------------Search--------------"
+"highlight search word"
+set hlsearch
+
+"enable incremental search"
+set incsearch
+
+"-------------Split Manager--------------"
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-H> <C-W><C-H>
+nmap <C-L> <C-W><C-L>
+
+"Add simple highlight removal."
+nmap <Leader><space> :nohlsearch<cr>
+
+"-------------Laravel-Specific--------------"
+nmap <Leader>lr :e routes/web.php<cr>
+nmap <Leader>lm :!php artisan make:
+nmap <Leader><Leader>c :e app/Http/Controllers/<cr>
+nmap <Leader><Leader>m :CtrlP<cr>app/
+nmap <Leader><Leader>v :e resources/views/<cr>
+
+"-------------Auto-Commands--------------"
+"Automatically source the Vimrc file on save."
+augroup autosourcing
+    autocmd!
+    autocmd BufWritePost .vimrc source %
+augroup END

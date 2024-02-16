@@ -1,0 +1,18 @@
+[color]
+    ui = auto
+[commit]
+	gpgsign = true
+[core]
+    editor = nvim
+    excludesfile = ~/.gitignore_global
+    pager = ""
+[help]
+    autocorrect = 10
+[include]
+    path = ~/.gitconfig_local
+[interactive]
+    diffFilter = delta --color-only
+[init]
+    defaultBranch = main
+[gpg]
+	program = gpg

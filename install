@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Zsh
+rm -rf $HOME/.zshrc
+ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
+
+# Vim
+rm -rf $HOME/.vim
+ln -sf $DOTFILES/vim/.vim $HOME/.vim
+
+rm -rf $HOME/.vimrc
+ln -sf $DOTFILES/vim/vimrc $HOME/.vimrc
+
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim
+
+# Kitty
+rm -rf $HOME/.config/kitty
+ln -s $DOTFILES/kitty $HOME/.config/kitty
+
+# Tmux
+ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+# Git
+ln -sf $DOTFILES/git/gitconfig $HOME/.gitconfig
+ln -sf $DOTFILES/git/gitignore_global $HOME/.gitignore_global
+
+# Phpactor
+rm -rf $HOME/.config/phpactor
+ln -s $DOTFILES/phpactor $HOME/.config/phpactor
+
+# Scripts
+mkdir -p $HOME/.local/bin
+
+ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
+
+# Oh My Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
