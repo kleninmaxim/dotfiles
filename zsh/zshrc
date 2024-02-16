@@ -96,48 +96,60 @@ fi
 eval "$(fnm env --use-on-cd)"
 
 
-#--------------------------------------------------------------------------
 # Aliases
-#--------------------------------------------------------------------------
-alias copy="xclip -selection clipboard"
-alias paste="xclip -o -selection clipboard"
 alias cat="bat"
 alias webcam="gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2"
 alias password="openssl rand -base64"
+# Aliases
 
 # Laravel
 alias pa="php artisan"
-alias sa="sail artisan"
-alias tinker="artisan tinker"
-alias serve="artisan serve"
-alias mfs="artisan migrate:fresh --seed"
-alias clog="echo "" > storage/logs/laravel.log"
+alias tinker="php artisan tinker"
+alias serve="php artisan serve"
+
+alias mfs="php artisan migrate:fresh --seed"
+
 alias sail='[ -f sail ] && sail || vendor/bin/sail'
+alias sa="sail artisan"
+
+alias clog="echo "" > storage/logs/laravel.log"
+# Laravel
 
 # Git
 alias g="git"
-alias ga="git add ."
-alias gc="git add . && git commit -m"
+alias ga="git add"
+
+alias gc="git commit -m"
+alias gcrt="git commit --amend --reset-author --no-edit"
+
 alias gb="git branch"
 alias gbdl="git branch -d"
 alias gbdr="git branch -d origin"
+
 alias gch="git checkout"
 alias gmain='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
-alias gcrt="git commit --amend --reset-author --no-edit"
-alias gcl="git config --list"
+
 alias gd="git diff"
 alias gfa="git fetch --all"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 alias gp="git push"
+alias gpl="git pull"
+alias gs="git status"
+
 alias gclc="git reset HEAD~"
 alias grhh="git reset --hard HEAD"
-alias gs="git status"
+
+alias gcl="git config --list"
+
 alias gsuu="git submodule update --init --recursive"
+# Git
 
 # Docker
 alias d="docker"
 alias dc="docker compose"
+# Docker
 
 # Ubuntu
 alias f="find . -name"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Ubuntu
