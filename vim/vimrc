@@ -4,6 +4,9 @@ set nocompatible              " be improved, required
 "enable file type detection"
 filetype plugin indent on
 
+"Copy to clipboard"
+set clipboard=unnamed
+
 "Make backspace behave normally"
 set backspace=indent,eol,start
 
