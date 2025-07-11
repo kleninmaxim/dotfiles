@@ -15,6 +15,7 @@ vendor-tags
 .ssh
 _ide_helper.php
 .idea
+.vscode
 .lvimrc
 .projections.json
 .phpactor.json
