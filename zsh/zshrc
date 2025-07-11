@@ -98,7 +98,6 @@ alias password="openssl rand -base64"
 # Laravel
 alias pa="php artisan"
 alias tinker="php artisan tinker"
-alias serve="php artisan serve"
 
 alias mfs="php artisan migrate:fresh --seed"
 
