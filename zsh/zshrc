@@ -83,18 +83,11 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 
-if [ -e /home/jess/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jess/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
     ~/.dotfiles/scripts/login.sh
 fi
 
-eval "$(fnm env --use-on-cd)"
-
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Aliases
 alias cat="bat"
@@ -105,7 +98,6 @@ alias password="openssl rand -base64"
 # Laravel
 alias pa="php artisan"
 alias tinker="php artisan tinker"
-alias serve="php artisan serve"
 
 alias mfs="php artisan migrate:fresh --seed"
 
@@ -150,6 +142,11 @@ alias dc="docker compose"
 # Docker
 
 # Ubuntu
-alias f="find . -name"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Ubuntu
+
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
+# PATHS
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+# PATHS
